@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
-    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -99,6 +100,7 @@ EEc
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="F" buttonSize="medium">
+                                    <backgroundConfiguration key="background"/>
                                     <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
                                     <directionalEdgeInsets key="contentInsets" top="0.0" leading="-3" bottom="0.0" trailing="-3"/>
                                     <color key="baseForegroundColor" red="0.076813302929999994" green="0.076813302929999994" blue="0.076813302929999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -109,7 +111,7 @@ EEc
                                 <rect key="frame" x="328" y="20" width="38" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Del">
+                                <buttonConfiguration key="configuration" style="filled" title="">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
                                     <directionalEdgeInsets key="contentInsets" top="0.0" leading="-20" bottom="0.0" trailing="-20"/>
                                     <color key="baseForegroundColor" red="0.076813302929999994" green="0.076813302929999994" blue="0.076813302929999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -152,7 +154,7 @@ EEc
                                 <rect key="frame" x="26" y="66" width="38" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Cap">
+                                <buttonConfiguration key="configuration" style="filled" title="">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
                                     <directionalEdgeInsets key="contentInsets" top="0.0" leading="-20" bottom="0.0" trailing="-20"/>
                                     <color key="baseForegroundColor" red="0.45993506909999998" green="0.45993506909999998" blue="0.45993506909999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -239,9 +241,10 @@ EEc
                                 <rect key="frame" x="328" y="66" width="38" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title=": ;">
+                                <buttonConfiguration key="configuration" style="filled" title=": " subtitle="   ;">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
-                                    <directionalEdgeInsets key="contentInsets" top="0.0" leading="-20" bottom="0.0" trailing="-20"/>
+                                    <fontDescription key="subtitleFontDescription" type="system" pointSize="17"/>
+                                    <directionalEdgeInsets key="contentInsets" top="-3" leading="-24" bottom="0.0" trailing="-20"/>
                                     <color key="baseForegroundColor" red="0.076813302929999994" green="0.076813302929999994" blue="0.076813302929999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="baseBackgroundColor" red="0.8731591702" green="0.8731591702" blue="0.8731591702" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
@@ -359,7 +362,10 @@ EEc
                                 <rect key="frame" x="328" y="114" width="38" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Spl.">
+                                <buttonConfiguration key="configuration" style="filled">
+                                    <string key="title" base64-UTF8="YES">
+w7F7EBAQA
+</string>
                                     <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
                                     <directionalEdgeInsets key="contentInsets" top="0.0" leading="-20" bottom="0.0" trailing="-20"/>
                                     <color key="baseForegroundColor" red="0.45993506909999998" green="0.45993506909999998" blue="0.45993506909999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -392,7 +398,7 @@ EEc
                                 <rect key="frame" x="26" y="160" width="39" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Keyb">
+                                <buttonConfiguration key="configuration" style="filled" title="">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
                                     <directionalEdgeInsets key="contentInsets" top="0.0" leading="-20" bottom="0.0" trailing="-20"/>
                                     <color key="baseForegroundColor" red="0.45993506909999998" green="0.45993506909999998" blue="0.45993506909999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -403,7 +409,7 @@ EEc
                                 <rect key="frame" x="97" y="160" width="24" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="_">
+                                <buttonConfiguration key="configuration" style="filled" title="">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
                                     <directionalEdgeInsets key="contentInsets" top="0.0" leading="-3" bottom="0.0" trailing="-3"/>
                                     <color key="baseForegroundColor" red="0.1724791229" green="0.1724791229" blue="0.1724791229" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -414,7 +420,7 @@ EEc
                                 <rect key="frame" x="123" y="160" width="26" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Set">
+                                <buttonConfiguration key="configuration" style="filled" title="">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
                                     <directionalEdgeInsets key="contentInsets" top="0.0" leading="-3" bottom="0.0" trailing="-3"/>
                                     <color key="baseForegroundColor" red="0.45882352941176469" green="0.45882352941176469" blue="0.45882352941176469" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -425,7 +431,7 @@ EEc
                                 <rect key="frame" x="151" y="160" width="91" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="space">
+                                <buttonConfiguration key="configuration" style="filled" title="">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
                                     <directionalEdgeInsets key="contentInsets" top="0.0" leading="-3" bottom="0.0" trailing="-3"/>
                                     <color key="baseBackgroundColor" red="0.26844969390000001" green="0.26844969390000001" blue="0.26844969390000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -457,7 +463,7 @@ EEc
                                 <rect key="frame" x="328" y="160" width="38" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Ret.">
+                                <buttonConfiguration key="configuration" style="filled" title="">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
                                     <directionalEdgeInsets key="contentInsets" top="0.0" leading="-20" bottom="0.0" trailing="-20"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -486,6 +492,66 @@ EEc
                                     <color key="baseBackgroundColor" red="0.69883757830000004" green="0.69883769750000002" blue="0.69883757830000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="delete.left.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="g7c-oj-70G">
+                                <rect key="frame" x="336" y="30" width="22" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.45993506909999998" green="0.45993506909999998" blue="0.45993506909999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="capslock.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="mh0-8I-bta">
+                                <rect key="frame" x="35" y="74.5" width="21" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.45993506909999998" green="0.45993506909999998" blue="0.45993506909999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="keyboard.chevron.compact.down.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="a0C-fd-cmp">
+                                <rect key="frame" x="33" y="171" width="25" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.45993506909999998" green="0.45993506909999998" blue="0.45993506909999998" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.45993506909999998" green="0.45993506909999998" blue="0.45993506909999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="gearshape.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Fgu-LE-KCO">
+                                <rect key="frame" x="126" y="170" width="21" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.45993506909999998" green="0.45993506909999998" blue="0.45993506909999998" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.45993506909999998" green="0.45993506909999998" blue="0.45993506909999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P8j-zj-YXl">
+                                <rect key="frame" x="155" y="181" width="80" height="12"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.45993506909999998" green="0.45993506909999998" blue="0.45993506909999998" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <imageReference key="image" image="space" catalog="system" symbolScale="large"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="return" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Osp-uT-3D3">
+                                <rect key="frame" x="336" y="169" width="22" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="lessthan" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="WU3-Qa-WWh">
+                                <rect key="frame" x="249" y="165.66666666666666" width="14" height="9"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.34578174350000002" green="0.34578174350000002" blue="0.34578174350000002" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.36665344239999997" green="0.36665344239999997" blue="0.36665344239999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="greaterthan" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="tOW-Q6-jRj">
+                                <rect key="frame" x="277" y="165.66666666666666" width="14" height="9"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.14835506679999999" green="0.14835506679999999" blue="0.14835506679999999" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.34578174350000002" green="0.34578174350000002" blue="0.34578174350000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="minus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="JN7-Hl-dww">
+                                <rect key="frame" x="100" y="161.33333333333334" width="18" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.20392156862745098" green="0.20392156862745098" blue="0.20392156862745098" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.20392156862745098" green="0.20392156862745098" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="minus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="QLJ-Wu-z7c">
+                                <rect key="frame" x="103" y="181.33333333333337" width="12" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.20392156859999999" green="0.20392156859999999" blue="0.20392156859999999" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.20392156859999999" green="0.20392156859999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" red="0.51098328829999995" green="0.51098328829999995" blue="0.51098328829999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -494,7 +560,18 @@ EEc
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="47.8125" y="-24.823943661971832"/>
+            <point key="canvasLocation" x="-188" y="-62"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="capslock.fill" catalog="system" width="128" height="119"/>
+        <image name="delete.left.fill" catalog="system" width="128" height="102"/>
+        <image name="gearshape.fill" catalog="system" width="128" height="123"/>
+        <image name="greaterthan" catalog="system" width="128" height="108"/>
+        <image name="keyboard.chevron.compact.down.fill" catalog="system" width="128" height="100"/>
+        <image name="lessthan" catalog="system" width="128" height="108"/>
+        <image name="minus" catalog="system" width="128" height="26"/>
+        <image name="return" catalog="system" width="128" height="102"/>
+        <image name="space" catalog="system" width="128" height="38"/>
+    </resources>
 </document>
