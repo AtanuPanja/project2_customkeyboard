@@ -557,10 +557,53 @@ w7F7EBAQA
                         <color key="backgroundColor" red="0.51098328829999995" green="0.51098328829999995" blue="0.51098328829999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <size key="freeformSize" width="393" height="285"/>
+                    <connections>
+                        <outlet property="Tplus_outlet" destination="7dh-yi-ckY" id="mvj-lt-gd2"/>
+                        <outlet property="Tr_outlet" destination="gfJ-xS-rCX" id="THz-t2-G61"/>
+                        <outlet property="a_letterOutlet" destination="XT0-gQ-2go" id="Z4J-mO-Msw"/>
+                        <outlet property="at_charOutlet" destination="XHk-Jc-4n2" id="bde-uG-ntg"/>
+                        <outlet property="b_letterOutlet" destination="ZVG-0k-9mk" id="Eov-oZ-Jzs"/>
+                        <outlet property="c_letterOutlet" destination="wGO-tR-Bka" id="OmT-Gb-M2h"/>
+                        <outlet property="capsOutlet" destination="w2v-jX-Peu" id="WDQ-wr-sME"/>
+                        <outlet property="commaLesser_charOutlet" destination="pVm-Fb-fss" id="EaT-y8-NJz"/>
+                        <outlet property="d_letterOutlet" destination="EKL-26-zOn" id="xaD-cR-deF"/>
+                        <outlet property="deleteOutlet" destination="Ugb-LK-onM" id="Dmp-oI-Kpm"/>
+                        <outlet property="e_letterOutlet" destination="C44-4C-iMZ" id="enL-Zg-1na"/>
+                        <outlet property="f_letterOutlet" destination="vFb-PB-PZA" id="jpg-Ze-NKD"/>
+                        <outlet property="g_letterOutlet" destination="ng1-4d-QHa" id="RCK-eh-fNS"/>
+                        <outlet property="h_letterOutlet" destination="633-0K-xMU" id="nke-SG-vpl"/>
+                        <outlet property="i_letterOutlet" destination="kUH-RE-XlP" id="ICS-NR-mUG"/>
+                        <outlet property="j_letterOutlet" destination="hH5-id-6hj" id="TdI-f3-L3j"/>
+                        <outlet property="k_letterOutlet" destination="3dW-Kx-oLE" id="Hhg-sK-IgU"/>
+                        <outlet property="keyboardDismissChangeOutlet" destination="hK5-Iw-5Em" id="Jee-SU-iQR"/>
+                        <outlet property="l_letterOutlet" destination="pIs-4N-I0r" id="IBC-OU-bCj"/>
+                        <outlet property="m_letterOutlet" destination="M4z-5y-OfD" id="iO6-3y-mp4"/>
+                        <outlet property="minusUnderscore_charOutlet" destination="KZ9-bh-qHz" id="Frz-NQ-kIB"/>
+                        <outlet property="n_letterOutlet" destination="bxd-Az-mQo" id="pbg-ID-cDw"/>
+                        <outlet property="o_letterOutlet" destination="zlD-FK-Ymh" id="75r-hX-9qh"/>
+                        <outlet property="p_letterOutlet" destination="nvf-6l-qbb" id="L2M-gR-lSa"/>
+                        <outlet property="periodGreater_charOutlet" destination="KNo-Mz-IU8" id="6vp-hO-7S8"/>
+                        <outlet property="q_letterOutlet" destination="E5B-dz-Eoq" id="9bc-or-ZBP"/>
+                        <outlet property="r_letterOutlet" destination="gkd-YL-azK" id="VFQ-ac-cah"/>
+                        <outlet property="returnOutlet" destination="iUs-Bh-S88" id="pD6-El-HZU"/>
+                        <outlet property="s_letterOutlet" destination="mfR-xp-XSH" id="vq1-vj-tiR"/>
+                        <outlet property="semicolonOutlet" destination="fgW-Fb-xbo" id="8mZ-Yk-MaK"/>
+                        <outlet property="settingsOutlet" destination="w4S-S2-G3m" id="Yng-Fr-9er"/>
+                        <outlet property="slash_charOutlet" destination="ZI5-dA-usv" id="23d-WY-jHX"/>
+                        <outlet property="space_charOutlet" destination="Pdq-4v-bxn" id="3Kk-rF-RLo"/>
+                        <outlet property="specialCharsOutlet" destination="E18-ho-g8L" id="0QG-fB-cL6"/>
+                        <outlet property="t_letterOutlet" destination="1Vd-BE-KRV" id="E5M-ID-nJs"/>
+                        <outlet property="u_letterOutlet" destination="iAy-ct-Nu3" id="HsO-LG-F6E"/>
+                        <outlet property="v_letterOutlet" destination="4Ic-1m-6rO" id="SSg-pm-75g"/>
+                        <outlet property="w_letterOutlet" destination="DXm-sE-Cgv" id="act-pY-jEW"/>
+                        <outlet property="x_letterOutlet" destination="K75-1i-Xgn" id="GOj-eP-4Dp"/>
+                        <outlet property="y_letterOutlet" destination="06e-GW-Rlr" id="702-v9-xON"/>
+                        <outlet property="z_letterOutlet" destination="QeL-pZ-QZA" id="9VA-la-PDG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-188" y="-62"/>
+            <point key="canvasLocation" x="-189.13043478260872" y="-62.364130434782616"/>
         </scene>
     </scenes>
     <resources>

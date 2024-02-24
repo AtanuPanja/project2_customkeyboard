@@ -8,7 +8,51 @@
 import UIKit
 
 class KeyboardViewController: UIInputViewController {
-
+    
+    
+    @IBOutlet weak var f_letterOutlet: UIButton!
+    @IBOutlet weak var g_letterOutlet: UIButton!
+    @IBOutlet weak var h_letterOutlet: UIButton!
+    @IBOutlet weak var Tr_outlet: UIButton!
+    @IBOutlet weak var j_letterOutlet: UIButton!
+    @IBOutlet weak var k_letterOutlet: UIButton!
+    @IBOutlet weak var l_letterOutlet: UIButton!
+    @IBOutlet weak var m_letterOutlet: UIButton!
+    @IBOutlet weak var n_letterOutlet: UIButton!
+    @IBOutlet weak var deleteOutlet: UIButton!
+    @IBOutlet weak var capsOutlet: UIButton!
+    @IBOutlet weak var e_letterOutlet: UIButton!
+    @IBOutlet weak var i_letterOutlet: UIButton!
+    @IBOutlet weak var o_letterOutlet: UIButton!
+    @IBOutlet weak var Tplus_outlet: UIButton!
+    @IBOutlet weak var p_letterOutlet: UIButton!
+    @IBOutlet weak var q_letterOutlet: UIButton!
+    @IBOutlet weak var r_letterOutlet: UIButton!
+    @IBOutlet weak var s_letterOutlet: UIButton!
+    @IBOutlet weak var t_letterOutlet: UIButton!
+    @IBOutlet weak var semicolonOutlet: UIButton!
+    @IBOutlet weak var a_letterOutlet: UIButton!
+    @IBOutlet weak var b_letterOutlet: UIButton!
+    @IBOutlet weak var c_letterOutlet: UIButton!
+    @IBOutlet weak var d_letterOutlet: UIButton!
+    @IBOutlet weak var u_letterOutlet: UIButton!
+    @IBOutlet weak var v_letterOutlet: UIButton!
+    @IBOutlet weak var w_letterOutlet: UIButton!
+    @IBOutlet weak var x_letterOutlet: UIButton!
+    @IBOutlet weak var y_letterOutlet: UIButton!
+    @IBOutlet weak var z_letterOutlet: UIButton!
+    @IBOutlet weak var specialCharsOutlet: UIButton!
+    @IBOutlet weak var keyboardDismissChangeOutlet: UIButton!
+    @IBOutlet weak var at_charOutlet: UIButton!
+    @IBOutlet weak var minusUnderscore_charOutlet: UIButton!
+    @IBOutlet weak var settingsOutlet: UIButton!
+    @IBOutlet weak var space_charOutlet: UIButton!
+    @IBOutlet weak var commaLesser_charOutlet: UIButton!
+    @IBOutlet weak var periodGreater_charOutlet: UIButton!
+    @IBOutlet weak var slash_charOutlet: UIButton!
+    @IBOutlet weak var returnOutlet: UIButton!
+    
+    
     @IBOutlet var nextKeyboardButton: UIButton!
     
     override func updateViewConstraints() {
@@ -33,11 +77,26 @@ class KeyboardViewController: UIInputViewController {
         
         self.nextKeyboardButton.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
         self.nextKeyboardButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        
+        
+        
+        // buttons in the keyboard
+        self.f_letterOutlet.addTarget(self, action: #selector(inputTextIntoField), for: .touchUpInside)
+        
+        self.capsOutlet.addTarget(self, action: #selector(shiftButtonHandler), for: .touchUpInside)
+        
     }
+    
+    
     
     @objc func inputTextIntoField() {
         let proxy = self.textDocumentProxy as UITextDocumentProxy
-        proxy.insertText("Success!")
+        proxy.insertText("Text")
+    }
+    
+    @objc func shiftButtonHandler() {
+        let proxy = self.textDocumentProxy as UITextDocumentProxy
+        proxy.insertText("caps lock")
     }
     
     override func viewWillLayoutSubviews() {
