@@ -81,7 +81,12 @@ class KeyboardViewController: UIInputViewController {
         
         
         // buttons in the keyboard
+        self.f_letterOutlet.tag = 6
         self.f_letterOutlet.addTarget(self, action: #selector(inputTextIntoField), for: .touchUpInside)
+        
+        
+        
+        
         
         self.capsOutlet.addTarget(self, action: #selector(shiftButtonHandler), for: .touchUpInside)
         
@@ -89,9 +94,16 @@ class KeyboardViewController: UIInputViewController {
     
     
     
-    @objc func inputTextIntoField() {
+    @objc func inputTextIntoField(sender: UIButton) {
         let proxy = self.textDocumentProxy as UITextDocumentProxy
-        proxy.insertText("Text")
+        switch(sender.tag) {
+        case 6:
+            proxy.insertText("f")
+            break
+        default:
+            break
+        }
+        
     }
     
     @objc func shiftButtonHandler() {
