@@ -7,6 +7,10 @@
 
 import UIKit
 
+enum LetterTags {
+    
+}
+
 class KeyboardViewController: UIInputViewController {
     
     
@@ -55,6 +59,9 @@ class KeyboardViewController: UIInputViewController {
     
     @IBOutlet var nextKeyboardButton: UIButton!
     
+    // creating an array, associating a number, with the respective letter outlet
+    var letterOutlets: [Int: UIButton?] = [:]
+    
     override func updateViewConstraints() {
         super.updateViewConstraints()
         
@@ -80,28 +87,67 @@ class KeyboardViewController: UIInputViewController {
         
         
         
-        // buttons in the keyboard
-        self.f_letterOutlet.tag = 6
-        self.f_letterOutlet.addTarget(self, action: #selector(inputTextIntoField), for: .touchUpInside)
+        // letter buttons in the keyboard
         
+        // initializing the letterOutlets array
+        letterOutlets = [
+            1: self.a_letterOutlet,
+            2: self.b_letterOutlet,
+            3: self.c_letterOutlet,
+            4: self.d_letterOutlet,
+            5: self.e_letterOutlet,
+            6: self.f_letterOutlet,
+            7: self.g_letterOutlet,
+            8: self.h_letterOutlet,
+            9: self.i_letterOutlet,
+            10: self.j_letterOutlet,
+            11: self.k_letterOutlet,
+            12: self.l_letterOutlet,
+            13: self.m_letterOutlet,
+            14: self.n_letterOutlet,
+            15: self.o_letterOutlet,
+            16: self.p_letterOutlet,
+            17: self.q_letterOutlet,
+            18: self.r_letterOutlet,
+            19: self.s_letterOutlet,
+            20: self.t_letterOutlet,
+            21: self.u_letterOutlet,
+            22: self.v_letterOutlet,
+            23: self.w_letterOutlet,
+            24: self.x_letterOutlet,
+            25: self.y_letterOutlet,
+            26: self.z_letterOutlet,
+        ]
         
-        
+        // adding a index as the tag, and the inputTextIntoField method as selector for each outlet
+        for (index, letterOutlet) in letterOutlets {
+            print(index)
+            letterOutlet?.tag = index;
+            letterOutlet?.addTarget(self, action: #selector(inputTextIntoField), for: .touchUpInside)
+        }
         
         
         self.capsOutlet.addTarget(self, action: #selector(shiftButtonHandler), for: .touchUpInside)
         
+        self.deleteOutlet.addTarget(self, action: #selector(deletePrecedingCharacter), for: .touchUpInside)
+        
     }
     
+    // defined the functionality for delete button
+    @objc func deletePrecedingCharacter() {
+        let proxy = self.textDocumentProxy as UITextDocumentProxy
+        textDocumentProxy.deleteBackward()
+    }
     
-    
+    // defined the functionality for text input
     @objc func inputTextIntoField(sender: UIButton) {
         let proxy = self.textDocumentProxy as UITextDocumentProxy
-        switch(sender.tag) {
-        case 6:
-            proxy.insertText("f")
-            break
-        default:
-            break
+        print(sender.tag)
+        // converting the number ascii value into String
+        if let text = UnicodeScalar(sender.tag + 96) {
+            let stringText = String(text)
+            print(stringText)
+            proxy.insertText(stringText)
         }
         
     }
@@ -110,6 +156,7 @@ class KeyboardViewController: UIInputViewController {
         let proxy = self.textDocumentProxy as UITextDocumentProxy
         proxy.insertText("caps lock")
     }
+    
     
     override func viewWillLayoutSubviews() {
         self.nextKeyboardButton.isHidden = !self.needsInputModeSwitchKey
