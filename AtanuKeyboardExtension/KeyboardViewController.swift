@@ -62,6 +62,12 @@ class KeyboardViewController: UIInputViewController {
     // creating an array, associating a number, with the respective letter outlet
     var letterOutlets: [Int: UIButton?] = [:]
     
+    // defining variable for handling shift button pressed
+    // the initial values of the keys will be uppercase
+    // then, on pressing the shift key, this variable will be toggled, and all the letters' cases are toggled
+    // also the view is changed
+    var shiftButtonPressed: Bool = true
+    
     override func updateViewConstraints() {
         super.updateViewConstraints()
         
@@ -127,7 +133,7 @@ class KeyboardViewController: UIInputViewController {
         }
         
         
-        self.capsOutlet.addTarget(self, action: #selector(shiftButtonHandler), for: .touchUpInside)
+        self.capsOutlet.addTarget(self, action: #selector(shiftButtonSingleClickHandler), for: .touchUpInside)
         
         self.deleteOutlet.addTarget(self, action: #selector(deletePrecedingCharacter), for: .touchUpInside)
         
@@ -144,7 +150,14 @@ class KeyboardViewController: UIInputViewController {
         let proxy = self.textDocumentProxy as UITextDocumentProxy
         print(sender.tag)
         // converting the number ascii value into String
-        if let text = UnicodeScalar(sender.tag + 96) {
+        var asciiNumber = sender.tag
+        if shiftButtonPressed {
+            asciiNumber = asciiNumber + 64
+        } else {
+            asciiNumber = asciiNumber + 96
+        }
+        
+        if let text = UnicodeScalar(asciiNumber) {
             let stringText = String(text)
             print(stringText)
             proxy.insertText(stringText)
@@ -152,9 +165,25 @@ class KeyboardViewController: UIInputViewController {
         
     }
     
-    @objc func shiftButtonHandler() {
-        let proxy = self.textDocumentProxy as UITextDocumentProxy
-        proxy.insertText("caps lock")
+    @objc func shiftButtonSingleClickHandler() {
+        
+        shiftButtonPressed = !shiftButtonPressed;
+        for (_, letterOutlet) in letterOutlets {
+            if let letterOutlet = letterOutlet {
+                var asciiNumber = letterOutlet.tag
+                if shiftButtonPressed {
+                    asciiNumber += 64
+                } else {
+                    asciiNumber += 96
+                }
+                
+                if let text = UnicodeScalar(asciiNumber) {
+                    let stringText = String(text)
+                    letterOutlet.setTitle(stringText, for: .normal)
+                }
+            }
+            
+        }
     }
     
     
