@@ -137,14 +137,118 @@ class KeyboardViewController: UIInputViewController {
         
         self.deleteOutlet.addTarget(self, action: #selector(deletePrecedingCharacter), for: .touchUpInside)
         
+        self.at_charOutlet.addTarget(self, action: #selector(atButtonPressed), for: .touchUpInside)
+        
+        self.space_charOutlet.addTarget(self, action: #selector(spaceButtonPressed), for: .touchUpInside)
+        
+        self.minusUnderscore_charOutlet.addTarget(self, action: #selector(minusUnderscoreButtonPressed), for: .touchUpInside)
+        
+        self.commaLesser_charOutlet.addTarget(self, action: #selector(commaLesserButtonPressed), for: .touchUpInside)
+        
+        self.periodGreater_charOutlet.addTarget(self, action: #selector(periodGreaterButtonPressed), for: .touchUpInside)
+        
+        self.slash_charOutlet.addTarget(self, action: #selector(slashQuestionMarkButtonPressed), for: .touchUpInside)
+        
+        self.semicolonOutlet.addTarget(self, action: #selector(colonSemiColonButtonPressed), for: .touchUpInside)
+        
     }
+    
+    // added this functionality:
+    // when the less than, greater than, ?, underscore, : are active,
+    // pressing the button, would print to the screen the respective character, and then toggle the shift pressed button
+    // i.e., now the buttons would act as comma, period, /, hyphen and ;
+    // also alongwith them, the letters are also toggled
+    
+    // defined the functionality for colon and semi colon button
+    @objc func colonSemiColonButtonPressed() {
+        let proxy = self.textDocumentProxy as UITextDocumentProxy
+        if shiftButtonPressed {
+            proxy.insertText(":")
+            shiftButtonPressed = !shiftButtonPressed
+            setLetterButtonsCase()
+        } else {
+            proxy.insertText(";")
+        }
+    }
+    
+    // defined the functionality for slash and question mark button
+    @objc func slashQuestionMarkButtonPressed() {
+        let proxy = self.textDocumentProxy as UITextDocumentProxy
+        if shiftButtonPressed {
+            proxy.insertText("?")
+            shiftButtonPressed = !shiftButtonPressed
+            setLetterButtonsCase()
+        } else {
+            proxy.insertText("/")
+        }
+    }
+    
+    // defined the functionality for period and greater than
+    @objc func periodGreaterButtonPressed() {
+        let proxy = self.textDocumentProxy as UITextDocumentProxy
+        if shiftButtonPressed {
+            proxy.insertText(">")
+            shiftButtonPressed = !shiftButtonPressed
+            setLetterButtonsCase()
+        } else {
+            proxy.insertText(".")
+        }
+    }
+    
+    // defined the functionality for comma and lesser than
+    @objc func commaLesserButtonPressed() {
+        let proxy = self.textDocumentProxy as UITextDocumentProxy
+        if shiftButtonPressed {
+            proxy.insertText("<")
+            shiftButtonPressed = !shiftButtonPressed
+            setLetterButtonsCase()
+        } else {
+            proxy.insertText(",")
+        }
+    }
+    
+    // defined the functionality for underscore and hyphen
+    @objc func minusUnderscoreButtonPressed() {
+        let proxy = self.textDocumentProxy as UITextDocumentProxy
+        if shiftButtonPressed {
+            proxy.insertText("_")
+            shiftButtonPressed = !shiftButtonPressed
+            setLetterButtonsCase()
+        } else {
+            proxy.insertText("-")
+        }
+    }
+    
+    // defined the functionality for space button
+    @objc func spaceButtonPressed() {
+        let proxy = self.textDocumentProxy as UITextDocumentProxy
+        proxy.insertText(" ")
+    }
+    
+    // defined the functionality for at button
+    @objc func atButtonPressed() {
+        let proxy = self.textDocumentProxy as UITextDocumentProxy
+        proxy.insertText("@")
+    }
+    
+    // updated the functionality for delete button
+    // when the whole text is deleted, the shift button press is set to true
+    // letters are uppercase, and underscore, question mark, colon, <, > are active
+    // again when these buttons are clicked, the shift button press is toggled as defined above
     
     // defined the functionality for delete button
     @objc func deletePrecedingCharacter() {
         let proxy = self.textDocumentProxy as UITextDocumentProxy
-        textDocumentProxy.deleteBackward()
+        proxy.deleteBackward()
+        
+        if !proxy.hasText {
+            shiftButtonPressed = true
+            setLetterButtonsCase()
+        }
     }
     
+    // updated the functionality
+    // when the uppercase letter is pressed, it prints the uppercase letter to the input, and then again all the letters are lowercase
     // defined the functionality for text input
     @objc func inputTextIntoField(sender: UIButton) {
         let proxy = self.textDocumentProxy as UITextDocumentProxy
@@ -153,6 +257,9 @@ class KeyboardViewController: UIInputViewController {
         var asciiNumber = sender.tag
         if shiftButtonPressed {
             asciiNumber = asciiNumber + 64
+            shiftButtonPressed = !shiftButtonPressed
+            // update the letters display, and also, update the other letters input
+            setLetterButtonsCase()
         } else {
             asciiNumber = asciiNumber + 96
         }
@@ -167,7 +274,13 @@ class KeyboardViewController: UIInputViewController {
     
     @objc func shiftButtonSingleClickHandler() {
         
-        shiftButtonPressed = !shiftButtonPressed;
+        shiftButtonPressed = !shiftButtonPressed
+        setLetterButtonsCase()
+    }
+    
+    // extracted the functionality for changing the display on the letter buttons
+    // into a new function
+    func setLetterButtonsCase() {
         for (_, letterOutlet) in letterOutlets {
             if let letterOutlet = letterOutlet {
                 var asciiNumber = letterOutlet.tag
