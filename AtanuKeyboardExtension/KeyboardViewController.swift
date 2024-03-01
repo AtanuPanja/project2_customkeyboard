@@ -9,7 +9,12 @@ import UIKit
 
 class KeyboardViewController: UIInputViewController {
     
+    // outlets for accessing the first and second keyboard stack views
+    @IBOutlet weak var FirstKeyboard: UIStackView!
+    @IBOutlet weak var SecondKeyboard: UIStackView!
     
+    
+    // first keyboard buttons
     @IBOutlet weak var f_letterOutlet: UIButton!
     @IBOutlet weak var g_letterOutlet: UIButton!
     @IBOutlet weak var h_letterOutlet: UIButton!
@@ -54,9 +59,14 @@ class KeyboardViewController: UIInputViewController {
     @IBOutlet weak var returnOutlet: UIButton!
     
     
+    // second keyboard buttons
+    @IBOutlet weak var lettersOutlet: UIButton!
+    
+    // next keyboard button
     @IBOutlet var nextKeyboardButton: UIButton!
     
-    // creating an array, associating a number, with the respective letter outlet
+    
+    // creating an array, associating a number, with the respective letter outlet in first keyboard
     var letterOutlets: [Int: UIButton?] = [:]
     
     // defining variable for handling shift button pressed
@@ -91,7 +101,7 @@ class KeyboardViewController: UIInputViewController {
         self.nextKeyboardButton.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
         self.nextKeyboardButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
         
-        
+        // first keyboard functionality
         
         // letter buttons in the keyboard
         
@@ -153,6 +163,33 @@ class KeyboardViewController: UIInputViewController {
         
         self.semicolonOutlet.addTarget(self, action: #selector(colonSemiColonButtonPressed), for: .touchUpInside)
         
+        
+        self.specialCharsOutlet.setTitle(String(unicodeScalarLiteral: "\u{00F1}") + "{" + String(unicodeScalarLiteral: "\u{00AE}"), for: .normal)
+        
+        self.numbersOutlet.addTarget(self, action:  #selector(showSecondKeyboard), for: .touchUpInside)
+        
+        self.keyboardDismissChangeOutlet.addTarget(self, action: #selector(closeKeyboard), for: .touchUpInside)
+        
+        // second keyboard functionality
+        
+        self.lettersOutlet.addTarget(self, action: #selector(showFirstKeyboard), for: .touchUpInside)
+        
+    }
+    
+    // learned about alpha values and used it to hide/show the keyboards
+    @objc func showSecondKeyboard() {
+        self.FirstKeyboard.alpha = 0
+        self.SecondKeyboard.alpha = 1
+    }
+    
+    @objc func showFirstKeyboard() {
+        self.FirstKeyboard.alpha = 1
+        self.SecondKeyboard.alpha = 0
+    }
+    
+    // method to close the keyboard
+    @objc func closeKeyboard() {
+        self.dismissKeyboard()
     }
     
     // added the functionality of double clicking the shift button, to keep the letters uppercased, and the characters such as <, >, ? ... active. Again on double press of the shift button, this behaviour is toggled
