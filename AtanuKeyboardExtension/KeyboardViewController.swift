@@ -7,10 +7,6 @@
 
 import UIKit
 
-enum LetterTags {
-    
-}
-
 class KeyboardViewController: UIInputViewController {
     
     
@@ -45,6 +41,7 @@ class KeyboardViewController: UIInputViewController {
     @IBOutlet weak var x_letterOutlet: UIButton!
     @IBOutlet weak var y_letterOutlet: UIButton!
     @IBOutlet weak var z_letterOutlet: UIButton!
+    @IBOutlet weak var numbersOutlet: UIButton!
     @IBOutlet weak var specialCharsOutlet: UIButton!
     @IBOutlet weak var keyboardDismissChangeOutlet: UIButton!
     @IBOutlet weak var at_charOutlet: UIButton!
@@ -67,6 +64,8 @@ class KeyboardViewController: UIInputViewController {
     // then, on pressing the shift key, this variable will be toggled, and all the letters' cases are toggled
     // also the view is changed
     var shiftButtonPressed: Bool = true
+    // added a new bool variable to check if shift button has been pressed twice
+    var shiftButtonDoublePressed: Bool = false
     
     override func updateViewConstraints() {
         super.updateViewConstraints()
@@ -80,7 +79,8 @@ class KeyboardViewController: UIInputViewController {
         // Perform custom UI setup here
         self.nextKeyboardButton = UIButton(type: .system)
         
-        self.nextKeyboardButton.setTitle(NSLocalizedString("Next Keyboard", comment: "Title for 'Next Keyboard' button"), for: [])
+        // removed the title for the Next Keyboard Button
+        self.nextKeyboardButton.setTitle(NSLocalizedString("", comment: "Title for 'Next Keyboard' button"), for: [])
         self.nextKeyboardButton.sizeToFit()
         self.nextKeyboardButton.translatesAutoresizingMaskIntoConstraints = false
         
@@ -132,8 +132,10 @@ class KeyboardViewController: UIInputViewController {
             letterOutlet?.addTarget(self, action: #selector(inputTextIntoField), for: .touchUpInside)
         }
         
-        
+        // handling single click of shift button
         self.capsOutlet.addTarget(self, action: #selector(shiftButtonSingleClickHandler), for: .touchUpInside)
+        // added one more action for handling double click event on shift button
+        self.capsOutlet.addTarget(self, action: #selector(shiftButtonDoubleClickHandler), for: .touchDownRepeat)
         
         self.deleteOutlet.addTarget(self, action: #selector(deletePrecedingCharacter), for: .touchUpInside)
         
@@ -153,6 +155,10 @@ class KeyboardViewController: UIInputViewController {
         
     }
     
+    // added the functionality of double clicking the shift button, to keep the letters uppercased, and the characters such as <, >, ? ... active. Again on double press of the shift button, this behaviour is toggled
+    // separately handling the double press event for each of the action methods below
+    
+    
     // added this functionality:
     // when the less than, greater than, ?, underscore, : are active,
     // pressing the button, would print to the screen the respective character, and then toggle the shift pressed button
@@ -162,7 +168,9 @@ class KeyboardViewController: UIInputViewController {
     // defined the functionality for colon and semi colon button
     @objc func colonSemiColonButtonPressed() {
         let proxy = self.textDocumentProxy as UITextDocumentProxy
-        if shiftButtonPressed {
+        if shiftButtonDoublePressed {
+            proxy.insertText(":")
+        } else if shiftButtonPressed {
             proxy.insertText(":")
             shiftButtonPressed = !shiftButtonPressed
             setLetterButtonsCase()
@@ -174,7 +182,9 @@ class KeyboardViewController: UIInputViewController {
     // defined the functionality for slash and question mark button
     @objc func slashQuestionMarkButtonPressed() {
         let proxy = self.textDocumentProxy as UITextDocumentProxy
-        if shiftButtonPressed {
+        if shiftButtonDoublePressed {
+            proxy.insertText("?")
+        } else if shiftButtonPressed {
             proxy.insertText("?")
             shiftButtonPressed = !shiftButtonPressed
             setLetterButtonsCase()
@@ -186,7 +196,9 @@ class KeyboardViewController: UIInputViewController {
     // defined the functionality for period and greater than
     @objc func periodGreaterButtonPressed() {
         let proxy = self.textDocumentProxy as UITextDocumentProxy
-        if shiftButtonPressed {
+        if shiftButtonDoublePressed {
+            proxy.insertText(">")
+        } else if shiftButtonPressed {
             proxy.insertText(">")
             shiftButtonPressed = !shiftButtonPressed
             setLetterButtonsCase()
@@ -198,7 +210,9 @@ class KeyboardViewController: UIInputViewController {
     // defined the functionality for comma and lesser than
     @objc func commaLesserButtonPressed() {
         let proxy = self.textDocumentProxy as UITextDocumentProxy
-        if shiftButtonPressed {
+        if shiftButtonDoublePressed {
+            proxy.insertText("<")
+        } else if shiftButtonPressed {
             proxy.insertText("<")
             shiftButtonPressed = !shiftButtonPressed
             setLetterButtonsCase()
@@ -210,7 +224,9 @@ class KeyboardViewController: UIInputViewController {
     // defined the functionality for underscore and hyphen
     @objc func minusUnderscoreButtonPressed() {
         let proxy = self.textDocumentProxy as UITextDocumentProxy
-        if shiftButtonPressed {
+        if shiftButtonDoublePressed {
+            proxy.insertText("_")
+        } else if shiftButtonPressed {
             proxy.insertText("_")
             shiftButtonPressed = !shiftButtonPressed
             setLetterButtonsCase()
@@ -255,7 +271,9 @@ class KeyboardViewController: UIInputViewController {
         print(sender.tag)
         // converting the number ascii value into String
         var asciiNumber = sender.tag
-        if shiftButtonPressed {
+        if shiftButtonDoublePressed {
+            asciiNumber = asciiNumber + 64
+        } else if shiftButtonPressed {
             asciiNumber = asciiNumber + 64
             shiftButtonPressed = !shiftButtonPressed
             // update the letters display, and also, update the other letters input
@@ -272,9 +290,16 @@ class KeyboardViewController: UIInputViewController {
         
     }
     
+    // handler for shift button pressed one time
     @objc func shiftButtonSingleClickHandler() {
         
         shiftButtonPressed = !shiftButtonPressed
+        setLetterButtonsCase()
+    }
+    
+    // handler for shift button pressed two times
+    @objc func shiftButtonDoubleClickHandler() {
+        shiftButtonDoublePressed = !shiftButtonDoublePressed
         setLetterButtonsCase()
     }
     
@@ -284,7 +309,7 @@ class KeyboardViewController: UIInputViewController {
         for (_, letterOutlet) in letterOutlets {
             if let letterOutlet = letterOutlet {
                 var asciiNumber = letterOutlet.tag
-                if shiftButtonPressed {
+                if shiftButtonDoublePressed || shiftButtonPressed {
                     asciiNumber += 64
                 } else {
                     asciiNumber += 96
@@ -321,5 +346,4 @@ class KeyboardViewController: UIInputViewController {
         }
         self.nextKeyboardButton.setTitleColor(textColor, for: [])
     }
-
 }

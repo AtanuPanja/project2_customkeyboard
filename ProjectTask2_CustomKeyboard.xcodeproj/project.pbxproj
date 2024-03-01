@@ -16,6 +16,7 @@
 		D3145F932B889AA900CF44DC /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3145F922B889AA900CF44DC /* KeyboardViewController.swift */; };
 		D3145F972B889AA900CF44DC /* AtanuKeyboardExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D3145F902B889AA900CF44DC /* AtanuKeyboardExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D3145FA32B88C2CF00CF44DC /* Keyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3145FA22B88C2CF00CF44DC /* Keyboard.storyboard */; };
+		D3A7FB8F2B90A1A3000C0BF6 /* SecondKeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A7FB8E2B90A1A3000C0BF6 /* SecondKeyboardViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		D3145F922B889AA900CF44DC /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		D3145F942B889AA900CF44DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3145FA22B88C2CF00CF44DC /* Keyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Keyboard.storyboard; sourceTree = "<group>"; };
+		D3A7FB8E2B90A1A3000C0BF6 /* SecondKeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondKeyboardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				D3145F922B889AA900CF44DC /* KeyboardViewController.swift */,
 				D3145F942B889AA900CF44DC /* Info.plist */,
 				D3145FA22B88C2CF00CF44DC /* Keyboard.storyboard */,
+				D3A7FB8E2B90A1A3000C0BF6 /* SecondKeyboardViewController.swift */,
 			);
 			path = AtanuKeyboardExtension;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3145F932B889AA900CF44DC /* KeyboardViewController.swift in Sources */,
+				D3A7FB8F2B90A1A3000C0BF6 /* SecondKeyboardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
