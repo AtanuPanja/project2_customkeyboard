@@ -12,6 +12,7 @@ class KeyboardViewController: UIInputViewController {
     // outlets for accessing the first and second keyboard stack views
     @IBOutlet weak var FirstKeyboard: UIStackView!
     @IBOutlet weak var SecondKeyboard: UIStackView!
+    @IBOutlet weak var ThirdKeyboard: UIStackView!
     
     
     // first keyboard buttons
@@ -71,7 +72,6 @@ class KeyboardViewController: UIInputViewController {
     @IBOutlet weak var eight_digitOutlet: UIButton!
     @IBOutlet weak var nine_digitOutlet: UIButton!
     @IBOutlet weak var zero_digitOutlet: UIButton!
-    
     @IBOutlet weak var tilde_charOutlet: UIButton!
     @IBOutlet weak var exclamation_charOutlet: UIButton!
     @IBOutlet weak var pound_charOutlet: UIButton!
@@ -82,7 +82,6 @@ class KeyboardViewController: UIInputViewController {
     @IBOutlet weak var ampersand_charOutlet: UIButton!
     @IBOutlet weak var asterisk_charOutlet: UIButton!
     @IBOutlet weak var equals_charOutlet: UIButton!
-    
     @IBOutlet weak var backtick_charOutlet: UIButton!
     @IBOutlet weak var euro_charOutlet: UIButton!
     @IBOutlet weak var yen_charOutlet: UIButton!
@@ -94,7 +93,6 @@ class KeyboardViewController: UIInputViewController {
     @IBOutlet weak var minus_charOutlet: UIButton!
     @IBOutlet weak var plus_charOutlet: UIButton!
     @IBOutlet weak var delete2Outlet: UIButton!
-    
     @IBOutlet weak var keyboardDismiss2Outlet: UIButton!
     @IBOutlet weak var specialChars2Outlet: UIButton!
     @IBOutlet weak var settings2Outlet: UIButton!
@@ -103,6 +101,22 @@ class KeyboardViewController: UIInputViewController {
     @IBOutlet weak var period_charOutlet: UIButton!
     @IBOutlet weak var slash2_charOutlet: UIButton!
     @IBOutlet weak var return2_Outlet: UIButton!
+    
+    // third keyboard buttons
+    @IBOutlet weak var thirdKeyboardLettersOutlet: UIButton!
+    
+    
+    @IBOutlet weak var smiley_charOutlet: UIButton!
+    
+    @IBOutlet weak var moveLeft2Outlet: UIButton!
+    @IBOutlet weak var pipe_charOutlet: UIButton!
+    @IBOutlet weak var backslash_charOutlet: UIButton!
+    @IBOutlet weak var openBrace_charOutlet: UIButton!
+    @IBOutlet weak var closingBrace_charOutlet: UIButton!
+    @IBOutlet weak var delete3Outlet: UIButton!
+    @IBOutlet weak var keyboardDismiss3Outlet: UIButton!
+    @IBOutlet weak var thirdKeyboardNumbersOutlet: UIButton!
+    @IBOutlet weak var space3_charOutlet: UIButton!
     
     
     // next keyboard button
@@ -211,6 +225,8 @@ class KeyboardViewController: UIInputViewController {
         
         self.numbersOutlet.addTarget(self, action:  #selector(showSecondKeyboard), for: .touchUpInside)
         
+        self.specialCharsOutlet.addTarget(self, action: #selector(showThirdKeyboard), for: .touchUpInside)
+        
         self.keyboardDismissChangeOutlet.addTarget(self, action: #selector(closeKeyboard), for: .touchUpInside)
         
         // second keyboard functionality
@@ -218,8 +234,9 @@ class KeyboardViewController: UIInputViewController {
         
         
         self.lettersOutlet.addTarget(self, action: #selector(showFirstKeyboard), for: .touchUpInside)
+        self.specialChars2Outlet.addTarget(self, action: #selector(showThirdKeyboard), for: .touchUpInside)
         
-        var secondKeyboardTextOutlets = [
+        let secondKeyboardTextOutlets = [
             self.one_digitOutlet,
             self.two_digitOutlet,
             self.three_digitOutlet,
@@ -268,9 +285,29 @@ class KeyboardViewController: UIInputViewController {
         
         self.period_charOutlet.addTarget(self, action: #selector(periodButtonPressed), for: .touchUpInside)
         
+        
+        // third keyboard functionality
+        self.thirdKeyboardLettersOutlet.addTarget(self, action: #selector(showFirstKeyboard), for: .touchUpInside)
+        
+        self.smiley_charOutlet.setImage(UIImage(named: "smiley"), for: .normal)
+        self.smiley_charOutlet.addTarget(self, action: #selector(smileyButtonPressed), for: .touchUpInside)
+        
+        self.thirdKeyboardNumbersOutlet.addTarget(self, action: #selector(showSecondKeyboard), for: .touchUpInside)
+        
+        self.keyboardDismiss3Outlet.addTarget(self, action: #selector(closeKeyboard), for: .touchUpInside)
+        
+        self.space3_charOutlet.addTarget(self, action: #selector(spaceButtonPressed), for: .touchUpInside)
+        
+        self.moveLeft2Outlet.addTarget(self, action: #selector(moveCursorLeft), for: .touchUpInside)
+        
+        
     }
     
-    
+    // functions for third keyboard buttons
+    @objc func smileyButtonPressed() {
+        let proxy = self.textDocumentProxy as UITextDocumentProxy
+        proxy.insertText(":-)")
+    }
     
     // functions for second keyboard buttons
     
@@ -303,18 +340,31 @@ class KeyboardViewController: UIInputViewController {
         
     }
     
-    
-    // functions for first keyboard buttons
-    // learned about alpha values and used it to hide/show the keyboards
-    @objc func showSecondKeyboard() {
-        self.FirstKeyboard.alpha = 0
-        self.SecondKeyboard.alpha = 1
-    }
-    
+    // logic for switching keyboards
+    // setting the other keyboard views' opacity to 0,
+    // to make the current keyboard appear
     @objc func showFirstKeyboard() {
         self.FirstKeyboard.alpha = 1
         self.SecondKeyboard.alpha = 0
+        self.ThirdKeyboard.alpha = 0
     }
+    @objc func showSecondKeyboard() {
+        self.FirstKeyboard.alpha = 0
+        self.SecondKeyboard.alpha = 1
+        self.ThirdKeyboard.alpha = 0
+    }
+    @objc func showThirdKeyboard() {
+        self.FirstKeyboard.alpha = 0
+        self.SecondKeyboard.alpha = 0
+        self.ThirdKeyboard.alpha = 1
+    }
+    
+    
+    // functions for first keyboard buttons
+    // learned about alpha values and used it to hide/show the keyboards
+    
+    
+    
     
     // method to close the keyboard
     @objc func closeKeyboard() {
@@ -513,3 +563,5 @@ class KeyboardViewController: UIInputViewController {
         self.nextKeyboardButton.setTitleColor(textColor, for: [])
     }
 }
+
+
