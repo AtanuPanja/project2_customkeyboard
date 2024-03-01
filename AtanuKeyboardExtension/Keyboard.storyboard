@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="285"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <stackView opaque="NO" alpha="0.0" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="x56-e4-GyX" userLabel="First Keyboard Stack View">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="x56-e4-GyX" userLabel="First Keyboard Stack View">
                                 <rect key="frame" x="10" y="20" width="373" height="196"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="IV6-8U-I1m">
@@ -555,7 +555,7 @@ EEc
                                     <constraint firstItem="x0I-OM-870" firstAttribute="height" secondItem="IV6-8U-I1m" secondAttribute="height" id="zdk-aw-aRP"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="z2C-Z4-Hjx" userLabel="Second Keyboard Stack View">
+                            <stackView opaque="NO" alpha="0.0" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="z2C-Z4-Hjx" userLabel="Second Keyboard Stack View">
                                 <rect key="frame" x="10" y="20" width="373" height="196"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="3Ut-cU-s1o">
@@ -1083,46 +1083,85 @@ EEc
                         <outlet property="Tplus_outlet" destination="7dh-yi-ckY" id="mvj-lt-gd2"/>
                         <outlet property="Tr_outlet" destination="gfJ-xS-rCX" id="THz-t2-G61"/>
                         <outlet property="a_letterOutlet" destination="XT0-gQ-2go" id="Z4J-mO-Msw"/>
+                        <outlet property="ampersand_charOutlet" destination="3Jf-VN-ZPU" id="pwn-d6-r3V"/>
+                        <outlet property="asterisk_charOutlet" destination="QbX-qa-5ro" id="wUP-i1-31b"/>
                         <outlet property="at_charOutlet" destination="XHk-Jc-4n2" id="bde-uG-ntg"/>
                         <outlet property="b_letterOutlet" destination="ZVG-0k-9mk" id="Eov-oZ-Jzs"/>
+                        <outlet property="backtick_charOutlet" destination="Xrs-d3-nTb" id="tLC-G5-E38"/>
                         <outlet property="c_letterOutlet" destination="wGO-tR-Bka" id="OmT-Gb-M2h"/>
+                        <outlet property="cap_charOutlet" destination="Urj-so-C7i" id="U8N-MF-coJ"/>
                         <outlet property="capsOutlet" destination="w2v-jX-Peu" id="WDQ-wr-sME"/>
+                        <outlet property="closeParan_charOutlet" destination="TDr-GS-aTF" id="mgu-bC-ZPl"/>
                         <outlet property="commaLesser_charOutlet" destination="pVm-Fb-fss" id="EaT-y8-NJz"/>
+                        <outlet property="comma_charOutlet" destination="G6c-Nt-0QG" id="MAL-xv-ekF"/>
                         <outlet property="d_letterOutlet" destination="EKL-26-zOn" id="xaD-cR-deF"/>
+                        <outlet property="delete2Outlet" destination="XsR-wG-KVB" id="aZ7-rg-Whg"/>
                         <outlet property="deleteOutlet" destination="Ugb-LK-onM" id="Dmp-oI-Kpm"/>
+                        <outlet property="dollar_charOutlet" destination="puA-5B-d1a" id="tYu-L9-3R7"/>
+                        <outlet property="doubleQuote_charOutlet" destination="OCC-9A-NJa" id="WGr-CR-SCl"/>
                         <outlet property="e_letterOutlet" destination="C44-4C-iMZ" id="enL-Zg-1na"/>
+                        <outlet property="eight_digitOutlet" destination="sEU-WE-mMM" id="s2z-Bg-vTx"/>
+                        <outlet property="equals_charOutlet" destination="JEs-G5-iXo" id="fBR-Z6-qlS"/>
+                        <outlet property="euro_charOutlet" destination="kYD-9W-Z6S" id="Ray-AX-K7M"/>
+                        <outlet property="exclamation_charOutlet" destination="k1b-96-VrE" id="cHp-fR-jMT"/>
                         <outlet property="f_letterOutlet" destination="vFb-PB-PZA" id="jpg-Ze-NKD"/>
+                        <outlet property="five_digitOutlet" destination="ppB-0h-hLm" id="Leu-js-MKG"/>
+                        <outlet property="four_digitOutlet" destination="Ioi-N9-tg7" id="kjw-bU-1tD"/>
                         <outlet property="g_letterOutlet" destination="ng1-4d-QHa" id="RCK-eh-fNS"/>
                         <outlet property="h_letterOutlet" destination="633-0K-xMU" id="nke-SG-vpl"/>
+                        <outlet property="hash_charOutlet" destination="jw2-wv-vdi" id="jU6-sM-mGr"/>
                         <outlet property="i_letterOutlet" destination="kUH-RE-XlP" id="ICS-NR-mUG"/>
                         <outlet property="j_letterOutlet" destination="hH5-id-6hj" id="TdI-f3-L3j"/>
                         <outlet property="k_letterOutlet" destination="3dW-Kx-oLE" id="Hhg-sK-IgU"/>
+                        <outlet property="keyboardDismiss2Outlet" destination="2mW-Ky-VGL" id="BOA-cR-RUq"/>
                         <outlet property="keyboardDismissChangeOutlet" destination="hK5-Iw-5Em" id="Jee-SU-iQR"/>
                         <outlet property="l_letterOutlet" destination="pIs-4N-I0r" id="IBC-OU-bCj"/>
                         <outlet property="lettersOutlet" destination="5Ba-Wv-FZZ" id="Hgc-0o-zV6"/>
                         <outlet property="m_letterOutlet" destination="M4z-5y-OfD" id="iO6-3y-mp4"/>
                         <outlet property="minusUnderscore_charOutlet" destination="KZ9-bh-qHz" id="Frz-NQ-kIB"/>
+                        <outlet property="minus_charOutlet" destination="pm4-EB-1gG" id="5TF-Kd-iUS"/>
+                        <outlet property="moveLeftOutlet" destination="sMz-sk-TdU" id="gHe-58-DVd"/>
                         <outlet property="n_letterOutlet" destination="bxd-Az-mQo" id="pbg-ID-cDw"/>
+                        <outlet property="nine_digitOutlet" destination="MJj-Y6-Pcn" id="q4b-IS-maQ"/>
                         <outlet property="numbersOutlet" destination="Bnc-No-HKL" id="8qc-n7-XPc"/>
                         <outlet property="o_letterOutlet" destination="zlD-FK-Ymh" id="75r-hX-9qh"/>
+                        <outlet property="one_digitOutlet" destination="edK-iY-Hnu" id="hfZ-LP-nlZ"/>
+                        <outlet property="openParan_charOutlet" destination="BBf-kT-fwI" id="fQR-LW-S7g"/>
                         <outlet property="p_letterOutlet" destination="nvf-6l-qbb" id="L2M-gR-lSa"/>
+                        <outlet property="percent_charOutlet" destination="iAV-kh-71k" id="yz8-9a-RN7"/>
                         <outlet property="periodGreater_charOutlet" destination="KNo-Mz-IU8" id="6vp-hO-7S8"/>
+                        <outlet property="period_charOutlet" destination="60N-ia-Uwn" id="jzb-iN-Xp4"/>
+                        <outlet property="plus_charOutlet" destination="YMK-kw-dkV" id="8ui-s6-RTv"/>
+                        <outlet property="pound_charOutlet" destination="Vby-zw-kp1" id="rq9-YL-8ud"/>
                         <outlet property="q_letterOutlet" destination="E5B-dz-Eoq" id="9bc-or-ZBP"/>
                         <outlet property="r_letterOutlet" destination="gkd-YL-azK" id="VFQ-ac-cah"/>
+                        <outlet property="return2_Outlet" destination="x5O-po-xJI" id="hGH-hw-KOR"/>
                         <outlet property="returnOutlet" destination="iUs-Bh-S88" id="pD6-El-HZU"/>
                         <outlet property="s_letterOutlet" destination="mfR-xp-XSH" id="vq1-vj-tiR"/>
                         <outlet property="semicolonOutlet" destination="fgW-Fb-xbo" id="8mZ-Yk-MaK"/>
+                        <outlet property="settings2Outlet" destination="ncz-AP-Fw6" id="vfI-TQ-PLF"/>
                         <outlet property="settingsOutlet" destination="w4S-S2-G3m" id="Yng-Fr-9er"/>
-                        <outlet property="slash_charOutlet" destination="ZI5-dA-usv" id="23d-WY-jHX"/>
+                        <outlet property="seven_digitOutlet" destination="ypI-kV-WAI" id="TTv-p2-J3V"/>
+                        <outlet property="singleQuote_charOutlet" destination="xoy-lv-AUg" id="U2R-dw-5Hv"/>
+                        <outlet property="six_digitOutlet" destination="DDq-SM-DU4" id="sNq-Zh-Jm6"/>
+                        <outlet property="slash2_charOutlet" destination="CMh-aU-cGO" id="dEp-ge-5nm"/>
+                        <outlet property="slash_charOutlet" destination="ZI5-dA-usv" id="uSC-o9-jZf"/>
+                        <outlet property="space2_charOutlet" destination="0ME-6n-H7E" id="Sk2-QW-0gE"/>
                         <outlet property="space_charOutlet" destination="Pdq-4v-bxn" id="3Kk-rF-RLo"/>
+                        <outlet property="specialChars2Outlet" destination="4HU-9n-23V" id="fzi-5X-RZr"/>
                         <outlet property="specialCharsOutlet" destination="E18-ho-g8L" id="0QG-fB-cL6"/>
                         <outlet property="t_letterOutlet" destination="1Vd-BE-KRV" id="E5M-ID-nJs"/>
+                        <outlet property="three_digitOutlet" destination="ch1-ni-O9A" id="U0E-zh-CCU"/>
+                        <outlet property="tilde_charOutlet" destination="MD0-j7-RUx" id="vi2-YZ-y31"/>
+                        <outlet property="two_digitOutlet" destination="dG8-pu-odR" id="19L-8d-Cq0"/>
                         <outlet property="u_letterOutlet" destination="iAy-ct-Nu3" id="HsO-LG-F6E"/>
                         <outlet property="v_letterOutlet" destination="4Ic-1m-6rO" id="SSg-pm-75g"/>
                         <outlet property="w_letterOutlet" destination="DXm-sE-Cgv" id="act-pY-jEW"/>
                         <outlet property="x_letterOutlet" destination="K75-1i-Xgn" id="GOj-eP-4Dp"/>
                         <outlet property="y_letterOutlet" destination="06e-GW-Rlr" id="702-v9-xON"/>
+                        <outlet property="yen_charOutlet" destination="OcW-Vv-FKh" id="DZs-m4-PRk"/>
                         <outlet property="z_letterOutlet" destination="QeL-pZ-QZA" id="9VA-la-PDG"/>
+                        <outlet property="zero_digitOutlet" destination="uFo-sF-3L4" id="90R-6C-Dmf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

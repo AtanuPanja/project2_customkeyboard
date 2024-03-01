@@ -61,6 +61,49 @@ class KeyboardViewController: UIInputViewController {
     
     // second keyboard buttons
     @IBOutlet weak var lettersOutlet: UIButton!
+    @IBOutlet weak var one_digitOutlet: UIButton!
+    @IBOutlet weak var two_digitOutlet: UIButton!
+    @IBOutlet weak var three_digitOutlet: UIButton!
+    @IBOutlet weak var four_digitOutlet: UIButton!
+    @IBOutlet weak var five_digitOutlet: UIButton!
+    @IBOutlet weak var six_digitOutlet: UIButton!
+    @IBOutlet weak var seven_digitOutlet: UIButton!
+    @IBOutlet weak var eight_digitOutlet: UIButton!
+    @IBOutlet weak var nine_digitOutlet: UIButton!
+    @IBOutlet weak var zero_digitOutlet: UIButton!
+    
+    @IBOutlet weak var tilde_charOutlet: UIButton!
+    @IBOutlet weak var exclamation_charOutlet: UIButton!
+    @IBOutlet weak var pound_charOutlet: UIButton!
+    @IBOutlet weak var hash_charOutlet: UIButton!
+    @IBOutlet weak var dollar_charOutlet: UIButton!
+    @IBOutlet weak var percent_charOutlet: UIButton!
+    @IBOutlet weak var cap_charOutlet: UIButton!
+    @IBOutlet weak var ampersand_charOutlet: UIButton!
+    @IBOutlet weak var asterisk_charOutlet: UIButton!
+    @IBOutlet weak var equals_charOutlet: UIButton!
+    
+    @IBOutlet weak var backtick_charOutlet: UIButton!
+    @IBOutlet weak var euro_charOutlet: UIButton!
+    @IBOutlet weak var yen_charOutlet: UIButton!
+    @IBOutlet weak var openParan_charOutlet: UIButton!
+    @IBOutlet weak var closeParan_charOutlet: UIButton!
+    @IBOutlet weak var moveLeftOutlet: UIButton!
+    @IBOutlet weak var singleQuote_charOutlet: UIButton!
+    @IBOutlet weak var doubleQuote_charOutlet: UIButton!
+    @IBOutlet weak var minus_charOutlet: UIButton!
+    @IBOutlet weak var plus_charOutlet: UIButton!
+    @IBOutlet weak var delete2Outlet: UIButton!
+    
+    @IBOutlet weak var keyboardDismiss2Outlet: UIButton!
+    @IBOutlet weak var specialChars2Outlet: UIButton!
+    @IBOutlet weak var settings2Outlet: UIButton!
+    @IBOutlet weak var space2_charOutlet: UIButton!
+    @IBOutlet weak var comma_charOutlet: UIButton!
+    @IBOutlet weak var period_charOutlet: UIButton!
+    @IBOutlet weak var slash2_charOutlet: UIButton!
+    @IBOutlet weak var return2_Outlet: UIButton!
+    
     
     // next keyboard button
     @IBOutlet var nextKeyboardButton: UIButton!
@@ -171,11 +214,97 @@ class KeyboardViewController: UIInputViewController {
         self.keyboardDismissChangeOutlet.addTarget(self, action: #selector(closeKeyboard), for: .touchUpInside)
         
         // second keyboard functionality
+        self.specialChars2Outlet.setTitle(String(unicodeScalarLiteral: "\u{00F1}") + "{" + String(unicodeScalarLiteral: "\u{00AE}"), for: .normal)
+        
         
         self.lettersOutlet.addTarget(self, action: #selector(showFirstKeyboard), for: .touchUpInside)
         
+        var secondKeyboardTextOutlets = [
+            self.one_digitOutlet,
+            self.two_digitOutlet,
+            self.three_digitOutlet,
+            self.four_digitOutlet,
+            self.five_digitOutlet,
+            self.six_digitOutlet,
+            self.seven_digitOutlet,
+            self.eight_digitOutlet,
+            self.nine_digitOutlet,
+            self.zero_digitOutlet,
+            self.tilde_charOutlet,
+            self.exclamation_charOutlet,
+            self.pound_charOutlet,
+            self.hash_charOutlet,
+            self.dollar_charOutlet,
+            self.percent_charOutlet,
+            self.cap_charOutlet,
+            self.ampersand_charOutlet,
+            self.asterisk_charOutlet,
+            self.equals_charOutlet,
+            self.backtick_charOutlet,
+            self.euro_charOutlet,
+            self.yen_charOutlet,
+            self.openParan_charOutlet,
+            self.closeParan_charOutlet,
+            self.singleQuote_charOutlet,
+            self.doubleQuote_charOutlet,
+            self.minus_charOutlet,
+            self.plus_charOutlet,
+            self.slash2_charOutlet,
+        ]
+        // adding the input functionality to all the input keys
+        for secondKeyboardTextOutlet in secondKeyboardTextOutlets {
+            secondKeyboardTextOutlet?.addTarget(self, action: #selector(inputTextSecondKeyboard), for: .touchUpInside)
+        }
+        
+        self.delete2Outlet.addTarget(self, action: #selector(deletePrecedingCharacter), for: .touchUpInside)
+        
+        self.space2_charOutlet.addTarget(self, action: #selector(spaceButtonPressed), for: .touchUpInside)
+        
+        self.keyboardDismiss2Outlet.addTarget(self, action: #selector(closeKeyboard), for: .touchUpInside)
+        
+        self.moveLeftOutlet.addTarget(self, action: #selector(moveCursorLeft), for: .touchUpInside)
+        
+        self.comma_charOutlet.addTarget(self, action: #selector(commaButtonPressed), for: .touchUpInside)
+        
+        self.period_charOutlet.addTarget(self, action: #selector(periodButtonPressed), for: .touchUpInside)
+        
     }
     
+    
+    
+    // functions for second keyboard buttons
+    
+    // insert period to the text field
+    @objc func periodButtonPressed() {
+        let proxy = self.textDocumentProxy as UITextDocumentProxy
+        proxy.insertText(".")
+    }
+    
+    // insert comma to the text field
+    @objc func commaButtonPressed() {
+        let proxy = self.textDocumentProxy as UITextDocumentProxy
+        proxy.insertText(",")
+    }
+    
+    // moves the cursor to the previous character
+    @objc func moveCursorLeft() {
+        let proxy = self.textDocumentProxy as UITextDocumentProxy
+        proxy.adjustTextPosition(byCharacterOffset: -1)
+    }
+    
+    // input the text on the key as is
+    @objc func inputTextSecondKeyboard(sender: UIButton) {
+        let proxy = self.textDocumentProxy as UITextDocumentProxy
+        if let titleLabel = sender.titleLabel {
+            if let text = titleLabel.text {
+                proxy.insertText(text)
+            }
+        }
+        
+    }
+    
+    
+    // functions for first keyboard buttons
     // learned about alpha values and used it to hide/show the keyboards
     @objc func showSecondKeyboard() {
         self.FirstKeyboard.alpha = 0
